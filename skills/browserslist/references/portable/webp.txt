@@ -1,0 +1,903 @@
+# Authoritative portable web feature allowlist
+# Browserslist 4.28.8 targets: chrome >= 32; and_chr >= 32; edge >= 18; opera >= 19; samsung >= 4; firefox >= 65; and_ff >= 65; safari >= 16; ios_saf >= 14
+# Compatibility data: MDN Browser Compatibility Data 8.0.10
+# Every listed feature is standards-track, current, non-experimental, and fully supported without flags, prefixes, alternative names, or partial implementations by every target browser.
+# Unlisted features are forbidden by this compatibility policy.
+# Syntax: name lists the root; name = members lists the root and members; name > members lists members only; each member expands to name.member.
+
+[js]
+functions
+
+[js.api]
+ANGLE_instanced_arrays = drawArraysInstancedANGLE drawElementsInstancedANGLE vertexAttribDivisorANGLE
+AnalyserNode = fftSize frequencyBinCount getByteFrequencyData getByteTimeDomainData getFloatFrequencyData maxDecibels minDecibels smoothingTimeConstant
+Attr = localName name namespaceURI ownerElement prefix value
+AudioBuffer = duration getChannelData length numberOfChannels sampleRate
+AudioBufferSourceNode = buffer loop loopEnd loopStart playbackRate start
+AudioContext > createMediaElementSource createMediaStreamSource
+AudioDestinationNode
+AudioListener
+AudioNode = channelCount channelCountMode channelInterpretation connect context disconnect numberOfInputs numberOfOutputs
+AudioParam = defaultValue setTargetAtTime setValueAtTime setValueCurveAtTime value
+AudioScheduledSourceNode > ended_event start stop
+BarProp = visible
+BaseAudioContext > createAnalyser createBiquadFilter createBuffer createBufferSource createChannelMerger createChannelSplitter createConvolver createDelay createDynamicsCompressor createGain createOscillator createPanner createPeriodicWave createWaveShaper currentTime decodeAudioData destination listener sampleRate
+BeforeUnloadEvent
+BiquadFilterNode = Q detune frequency gain getFrequencyResponse type
+Blob = Blob size slice type
+CDATASection
+CSS = supports_static
+CSSFontFaceRule = style
+CSSImportRule = href media styleSheet
+CSSKeyframeRule = keyText style
+CSSKeyframesRule = cssRules deleteRule findRule name
+CSSMediaRule = media
+CSSPageRule = style
+CSSRule = cssText parentRule parentStyleSheet
+CSSRuleList = item length
+CSSStyleDeclaration = cssText getPropertyPriority getPropertyValue item length parentRule removeProperty setProperty
+CSSStyleRule = selectorText style
+CSSStyleSheet = cssRules deleteRule insertRule insertRule.index_parameter_optional ownerRule
+CSSSupportsRule
+CanvasGradient = addColorStop
+CanvasPattern
+CanvasRenderingContext2D = arc arcTo beginPath bezierCurveTo canvas clearRect clip closePath createImageData createLinearGradient createPattern createRadialGradient drawImage ellipse fill fillRect fillStyle fillText getImageData getLineDash globalAlpha globalCompositeOperation imageSmoothingEnabled isPointInPath lineCap lineDashOffset lineJoin lineTo lineWidth measureText miterLimit moveTo putImageData quadraticCurveTo rect restore rotate save scale setLineDash setTransform shadowBlur shadowColor shadowOffsetX shadowOffsetY stroke strokeRect strokeStyle strokeText textAlign textBaseline transform translate
+ChannelMergerNode
+ChannelSplitterNode
+CharacterData = appendData data deleteData insertData length nextElementSibling previousElementSibling remove replaceData substringData
+CloseEvent = CloseEvent code reason wasClean
+Comment = Comment
+CompositionEvent = CompositionEvent data
+ConvolverNode = buffer normalize
+Crypto = getRandomValues
+CustomEvent = CustomEvent detail
+DOMException = message name
+DOMImplementation = createDocument createDocumentType createHTMLDocument
+DOMParser = DOMParser parseFromString parseFromString.html parseFromString.svg parseFromString.xml
+DOMRect > height width
+DOMRectList > item length
+DOMRectReadOnly > bottom height left right top width
+DOMStringList = contains item length
+DOMStringMap
+DOMTokenList = add add.multiple_parameters contains item length remove remove.multiple_parameters toString toggle toggle.force_parameter
+DataTransfer = clearData dropEffect effectAllowed files getData items setData setDragImage types
+DataTransferItem = getAsFile getAsString kind type
+DataTransferItemList = add clear length remove
+DedicatedWorkerGlobalScope = close message_event postMessage
+DelayNode = delayTime
+Document = DOMContentLoaded_event URL activeElement adoptNode body characterSet childElementCount children compatMode createAttribute createAttributeNS createCDATASection createComment createDocumentFragment createElement createElementNS createExpression createNodeIterator createProcessingInstruction createRange createTextNode createTreeWalker createTreeWalker.whatToShow_filter_parameters_optional currentScript defaultView doctype documentElement documentURI elementFromPoint evaluate firstElementChild forms getElementById getElementsByClassName getElementsByName getElementsByTagName getElementsByTagNameNS getSelection head images implementation importNode lastElementChild lastModified links location querySelector querySelectorAll readyState readystatechange_event referrer scroll_event selectionchange_event styleSheets title
+DocumentFragment = DocumentFragment childElementCount children firstElementChild lastElementChild querySelector querySelectorAll
+DocumentType = name publicId remove systemId
+DynamicsCompressorNode = attack knee ratio reduction release threshold
+Element = attributes blur_event childElementCount children classList className click_event clientHeight clientLeft clientTop clientWidth compositionend_event compositionstart_event compositionupdate_event copy_event cut_event dblclick_event firstElementChild focus_event getAttribute getAttributeNS getAttributeNode getAttributeNodeNS getBoundingClientRect getClientRects getElementsByClassName getElementsByTagName getElementsByTagName.all_elements_selector getElementsByTagNameNS getElementsByTagNameNS.all_elements_selector hasAttribute hasAttributeNS hasAttributes id innerHTML insertAdjacentElement insertAdjacentHTML insertAdjacentText keydown_event keyup_event lastElementChild localName mousedown_event mouseenter_event mouseleave_event mousemove_event mouseout_event mouseover_event mouseup_event namespaceURI nextElementSibling outerHTML paste_event prefix previousElementSibling querySelector querySelectorAll remove removeAttribute removeAttributeNS removeAttributeNode scrollHeight scrollLeft scrollTop scrollWidth scroll_event setAttribute setAttributeNS setAttributeNode setAttributeNodeNS tagName transitionend_event
+ErrorEvent = ErrorEvent colno error filename lineno message
+Event = Event bubbles cancelable currentTarget defaultPrevented eventPhase preventDefault stopImmediatePropagation stopPropagation target timeStamp type
+EventTarget = addEventListener addEventListener.useCapture_parameter_optional dispatchEvent removeEventListener removeEventListener.useCapture_parameter_optional
+File = lastModified name
+FileList = item length
+FileReader = FileReader abort abort_event error error_event load_event loadend_event progress_event readAsArrayBuffer readAsDataURL readAsText readyState result worker_support
+FileReaderSync = FileReaderSync readAsArrayBuffer readAsDataURL readAsText worker_support
+FileSystem = name root
+FileSystemDirectoryReader
+FocusEvent = FocusEvent relatedTarget
+FormData = FormData append append.filename_parameter
+GainNode = gain
+Gamepad = axes buttons connected id index mapping timestamp
+GamepadButton = pressed value
+GamepadEvent = gamepad
+Geolocation = clearWatch getCurrentPosition watchPosition
+GeolocationCoordinates > accuracy altitude altitudeAccuracy heading latitude longitude speed
+GeolocationPosition > coords timestamp
+GeolocationPositionError > code message
+HTMLAllCollection = item length namedItem
+HTMLAnchorElement = download hash host hostname href hreflang origin pathname port protocol rel search target text type
+HTMLAreaElement = alt coords hash host hostname href origin pathname port protocol search shape target toString
+HTMLAudioElement = Audio
+HTMLBRElement
+HTMLBaseElement = href target
+HTMLBodyElement
+HTMLButtonElement = checkValidity disabled form formAction formEnctype formMethod formNoValidate formTarget labels name setCustomValidity type validationMessage validity value willValidate
+HTMLCanvasElement = getContext getContext.2d_context getContext.webgl_context.options_alpha_parameter height toDataURL webglcontextcreationerror_event webglcontextlost_event webglcontextrestored_event width
+HTMLCollection = item length namedItem
+HTMLDListElement
+HTMLDataListElement = options
+HTMLDivElement
+HTMLDocument
+HTMLElement = accessKey blur change_event click contentEditable dataset dir drag_event dragend_event dragenter_event draggable dragleave_event dragover_event dragstart_event drop_event error_event focus hidden innerText isContentEditable lang load_event offsetHeight offsetLeft offsetParent offsetTop offsetWidth spellcheck style tabIndex title
+HTMLEmbedElement = getSVGDocument height src width
+HTMLFieldSetElement = checkValidity disabled elements form name setCustomValidity type validationMessage validity willValidate
+HTMLFormControlsCollection = namedItem
+HTMLFormElement = acceptCharset action autocomplete checkValidity elements encoding enctype length method name noValidate reset reset_event submit submit_event target
+HTMLHRElement
+HTMLHeadElement
+HTMLHeadingElement
+HTMLHtmlElement
+HTMLIFrameElement = contentDocument contentWindow getSVGDocument height name sandbox src width
+HTMLImageElement = Image alt complete crossOrigin height isMap naturalHeight naturalWidth src useMap width x y
+HTMLInputElement = accept alt autocomplete checkValidity checked defaultChecked defaultValue disabled files form formAction formEnctype formMethod formNoValidate formTarget height indeterminate invalid_event labels list max maxLength min multiple name pattern placeholder readOnly required select select_event selectionDirection selectionEnd selectionStart setCustomValidity setSelectionRange size src step type validationMessage validity value valueAsDate valueAsNumber width willValidate
+HTMLLIElement = value
+HTMLLabelElement = control form htmlFor
+HTMLLegendElement = form
+HTMLLinkElement = disabled href hreflang media rel sheet type
+HTMLMapElement = areas name
+HTMLMediaElement = abort_event addTextTrack autoplay buffered canPlayType canplay_event canplaythrough_event controls currentSrc currentTime defaultMuted defaultPlaybackRate duration durationchange_event emptied_event ended ended_event error error_event load loadeddata_event loadedmetadata_event loadstart_event loop muted networkState pause pause_event paused play play_event playbackRate played playing_event preload progress_event ratechange_event readyState seekable seeked_event seeking seeking_event src stalled_event suspend_event textTracks timeupdate_event volumechange_event waiting_event
+HTMLMenuElement
+HTMLMetaElement = content httpEquiv name
+HTMLMeterElement = high labels low max min optimum value
+HTMLModElement = cite dateTime
+HTMLOListElement = start type
+HTMLObjectElement = checkValidity contentDocument data form getSVGDocument height name setCustomValidity type validationMessage validity width willValidate
+HTMLOptGroupElement = label
+HTMLOptionElement = Option defaultSelected disabled form index label selected text value
+HTMLOptionsCollection = add length remove selectedIndex
+HTMLOutputElement = checkValidity defaultValue form htmlFor labels name setCustomValidity type validationMessage validity value willValidate
+HTMLParagraphElement
+HTMLPreElement
+HTMLProgressElement = labels max position value
+HTMLQuoteElement = cite
+HTMLScriptElement = async crossOrigin defer innerText src text textContent type
+HTMLSelectElement = add checkValidity disabled form item labels length multiple name namedItem options remove required selectedIndex selectedOptions setCustomValidity size type validationMessage validity value willValidate
+HTMLSourceElement = media src type
+HTMLSpanElement
+HTMLStyleElement = disabled media sheet
+HTMLTableCaptionElement
+HTMLTableCellElement = abbr cellIndex colSpan headers rowSpan scope
+HTMLTableColElement = span
+HTMLTableElement = caption createCaption createTBody createTFoot createTHead deleteCaption deleteRow deleteTFoot deleteTHead insertRow rows tBodies tFoot tHead
+HTMLTableRowElement = cells deleteCell insertCell insertCell.index_parameter_negative_one insertCell.index_parameter_optional rowIndex sectionRowIndex
+HTMLTableSectionElement = deleteRow insertRow rows
+HTMLTemplateElement = content
+HTMLTextAreaElement = checkValidity cols defaultValue disabled form labels maxLength name placeholder readOnly required rows select select_event selectionEnd selectionStart setCustomValidity setSelectionRange textLength type validationMessage validity value willValidate wrap
+HTMLTitleElement = text
+HTMLTrackElement = default kind label readyState src srclang track
+HTMLUListElement
+HTMLUnknownElement
+HTMLVideoElement = height poster videoHeight videoWidth width
+HashChangeEvent = HashChangeEvent newURL oldURL
+History = back forward go length pushState replaceState state
+IDBCursor > advance continue delete direction key primaryKey source update worker_support
+IDBCursorWithValue = value worker_support
+IDBDatabase = abort_event close createObjectStore deleteObjectStore name objectStoreNames transaction version versionchange_event worker_support
+IDBFactory = cmp deleteDatabase worker_support
+IDBIndex = count get getKey keyPath multiEntry name objectStore openCursor openKeyCursor unique worker_support
+IDBKeyRange = bound_static lower lowerBound_static lowerOpen only_static upper upperBound_static upperOpen worker_support
+IDBObjectStore = add clear count createIndex delete deleteIndex get index indexNames keyPath name openCursor put transaction worker_support
+IDBOpenDBRequest = blocked_event upgradeneeded_event worker_support
+IDBRequest = error error_event readyState result source success_event transaction worker_support
+IDBTransaction = abort abort_event complete_event db error error_event mode objectStore worker_support
+IDBVersionChangeEvent = newVersion oldVersion worker_support
+ImageData = data height width
+KeyboardEvent = KeyboardEvent altKey ctrlKey getModifierState getModifierState.key_parameter_alt getModifierState.key_parameter_control getModifierState.key_parameter_shift location metaKey shiftKey
+Location = assign hash host hostname href origin pathname port protocol reload replace search
+MediaElementAudioSourceNode
+MediaError = code
+MediaList = appendMedium deleteMedium item length mediaText toString
+MediaQueryList = matches media
+MediaStream > addTrack addtrack_event getAudioTracks getTrackById getVideoTracks id removeTrack
+MediaStreamAudioDestinationNode = stream
+MediaStreamAudioSourceNode
+MediaStreamTrack = enabled ended_event id kind label mute_event readyState stop unmute_event
+MediaStreamTrackEvent = track
+MessageChannel = MessageChannel port1 port2
+MessageEvent = MessageEvent data lastEventId origin ports source
+MessagePort = close message_event postMessage start worker_support
+MouseEvent = MouseEvent altKey button clientX clientY ctrlKey metaKey offsetX offsetY pageX pageY relatedTarget screenX screenY shiftKey x y
+MutationObserver = MutationObserver disconnect observe takeRecords
+MutationRecord = addedNodes attributeName attributeNamespace nextSibling oldValue previousSibling removedNodes target type
+NamedNodeMap = getNamedItem getNamedItemNS item length removeNamedItem removeNamedItemNS setNamedItem setNamedItemNS
+Navigator = appCodeName appName appVersion geolocation javaEnabled language mimeTypes onLine platform plugins product productSub userAgent vendor vendorSub
+Node = appendChild baseURI childNodes cloneNode compareDocumentPosition contains firstChild hasChildNodes insertBefore isDefaultNamespace isEqualNode isSameNode lastChild lookupNamespaceURI lookupPrefix nextSibling nodeName nodeType nodeValue normalize ownerDocument parentElement parentNode previousSibling removeChild replaceChild textContent
+NodeIterator = filter nextNode pointerBeforeReferenceNode previousNode referenceNode root whatToShow
+NodeList = item length
+OES_element_index_uint
+OES_standard_derivatives
+OES_texture_float
+OES_texture_float_linear
+OES_texture_half_float
+OES_texture_half_float_linear
+OES_vertex_array_object = bindVertexArrayOES createVertexArrayOES deleteVertexArrayOES isVertexArrayOES
+OfflineAudioCompletionEvent = renderedBuffer
+OfflineAudioContext > complete_event startRendering
+OscillatorNode = detune frequency setPeriodicWave type
+PageTransitionEvent = persisted
+PannerNode = coneInnerAngle coneOuterAngle coneOuterGain distanceModel maxDistance panningModel refDistance rolloffFactor
+Performance = getEntries getEntriesByName getEntriesByType now
+PerformanceEntry > duration entryType name startTime
+PerformanceMark
+PerformanceResourceTiming
+PeriodicWave
+PopStateEvent = PopStateEvent state
+ProcessingInstruction = target
+ProgressEvent = ProgressEvent lengthComputable loaded total
+RTCDTMFToneChangeEvent = RTCDTMFToneChangeEvent tone
+RTCIceCandidate = RTCIceCandidate candidate sdpMLineIndex sdpMid
+RTCPeerConnection > addIceCandidate close createAnswer createOffer getStats iceConnectionState iceGatheringState icecandidate_event iceconnectionstatechange_event localDescription negotiationneeded_event remoteDescription setLocalDescription setRemoteDescription signalingState signalingstatechange_event
+RTCPeerConnectionIceEvent > candidate
+RTCSessionDescription = sdp type
+RadioNodeList = value
+Range = Range cloneContents cloneRange collapse collapse.toStart_parameter_optional collapsed commonAncestorContainer compareBoundaryPoints comparePoint createContextualFragment deleteContents endContainer endOffset extractContents getBoundingClientRect getClientRects insertNode intersectsNode isPointInRange selectNode selectNodeContents setEnd setEndAfter setEndBefore setStart setStartAfter setStartBefore startContainer startOffset surroundContents toString
+SVGAElement = href target
+SVGAngle = convertToSpecifiedUnits newValueSpecifiedUnits unitType value valueAsString valueInSpecifiedUnits
+SVGAnimatedAngle = animVal baseVal
+SVGAnimatedBoolean = animVal baseVal
+SVGAnimatedEnumeration = animVal baseVal
+SVGAnimatedInteger = animVal baseVal
+SVGAnimatedLength = animVal baseVal
+SVGAnimatedLengthList = animVal baseVal
+SVGAnimatedNumber = animVal baseVal
+SVGAnimatedNumberList = animVal baseVal
+SVGAnimatedPreserveAspectRatio = animVal baseVal
+SVGAnimatedRect = animVal baseVal
+SVGAnimatedString = animVal baseVal
+SVGAnimatedTransformList = animVal baseVal
+SVGCircleElement = cx cy r
+SVGClipPathElement = clipPathUnits transform
+SVGComponentTransferFunctionElement = amplitude exponent intercept offset slope tableValues type
+SVGDefsElement
+SVGDescElement
+SVGElement = blur error_event focus ownerSVGElement style viewportElement
+SVGEllipseElement = cx cy rx ry
+SVGFEBlendElement = height in1 in2 mode result width x y
+SVGFEColorMatrixElement = height in1 result type values width x y
+SVGFEComponentTransferElement = height in1 result width x y
+SVGFECompositeElement = height in1 in2 k1 k2 k3 k4 operator result width x y
+SVGFEConvolveMatrixElement = bias divisor edgeMode height in1 kernelMatrix kernelUnitLengthX kernelUnitLengthY orderX orderY preserveAlpha result targetX targetY width x y
+SVGFEDiffuseLightingElement = diffuseConstant height in1 kernelUnitLengthX kernelUnitLengthY result surfaceScale width x y
+SVGFEDisplacementMapElement = height in1 in2 result scale width x xChannelSelector y yChannelSelector
+SVGFEDistantLightElement = azimuth elevation
+SVGFEFloodElement = height result width x y
+SVGFEFuncAElement
+SVGFEFuncBElement
+SVGFEFuncGElement
+SVGFEFuncRElement
+SVGFEGaussianBlurElement = height in1 result setStdDeviation stdDeviationX stdDeviationY width x y
+SVGFEImageElement = height href preserveAspectRatio result width x y
+SVGFEMergeElement = height result width x y
+SVGFEMergeNodeElement = in1
+SVGFEMorphologyElement = height in1 operator radiusX radiusY result width x y
+SVGFEOffsetElement = dx dy height in1 result width x y
+SVGFEPointLightElement = x y z
+SVGFESpecularLightingElement = height in1 result specularConstant specularExponent surfaceScale width x y
+SVGFESpotLightElement = limitingConeAngle pointsAtX pointsAtY pointsAtZ specularExponent x y z
+SVGFETileElement = height in1 result width x y
+SVGFETurbulenceElement = baseFrequencyX baseFrequencyY height numOctaves result seed stitchTiles type width x y
+SVGFilterElement = filterUnits height href primitiveUnits width x y
+SVGForeignObjectElement = height width x y
+SVGGElement
+SVGGradientElement = gradientTransform gradientUnits href spreadMethod
+SVGGraphicsElement = getBBox getCTM getScreenCTM requiredExtensions systemLanguage transform
+SVGImageElement = height href preserveAspectRatio width x y
+SVGLength = convertToSpecifiedUnits newValueSpecifiedUnits unitType value valueAsString valueInSpecifiedUnits
+SVGLengthList = appendItem clear getItem initialize insertItemBefore numberOfItems removeItem replaceItem
+SVGLineElement = x1 x2 y1 y2
+SVGLinearGradientElement = x1 x2 y1 y2
+SVGMarkerElement = markerHeight markerUnits markerWidth orientAngle orientType preserveAspectRatio refX refY setOrientToAngle setOrientToAuto viewBox
+SVGMaskElement = height maskContentUnits maskUnits width x y
+SVGMetadataElement
+SVGNumber = value
+SVGNumberList = appendItem clear getItem initialize insertItemBefore numberOfItems removeItem replaceItem
+SVGPathElement
+SVGPatternElement = height href patternContentUnits patternTransform patternUnits preserveAspectRatio viewBox width x y
+SVGPointList = appendItem clear getItem initialize insertItemBefore numberOfItems removeItem replaceItem
+SVGPolygonElement = animatedPoints points
+SVGPolylineElement = animatedPoints points
+SVGPreserveAspectRatio = align meetOrSlice
+SVGRadialGradientElement = cx cy fx fy r
+SVGRect = height width x y
+SVGRectElement = height rx ry width x y
+SVGSVGElement = createSVGAngle createSVGLength createSVGMatrix createSVGNumber createSVGPoint createSVGRect createSVGTransform createSVGTransformFromMatrix currentScale currentTranslate deselectAll getCurrentTime getElementById height pauseAnimations preserveAspectRatio setCurrentTime unpauseAnimations viewBox width x y
+SVGScriptElement = href type
+SVGStopElement = offset
+SVGStringList = appendItem clear getItem initialize insertItemBefore numberOfItems removeItem replaceItem
+SVGStyleElement = media title
+SVGSwitchElement
+SVGSymbolElement = preserveAspectRatio viewBox
+SVGTSpanElement
+SVGTextContentElement = getCharNumAtPosition getComputedTextLength getEndPositionOfChar getExtentOfChar getNumberOfChars getRotationOfChar getStartPositionOfChar getSubStringLength lengthAdjust textLength
+SVGTextElement
+SVGTextPathElement = href method spacing startOffset
+SVGTextPositioningElement = dx dy rotate x y
+SVGTitleElement
+SVGTransform = angle matrix setMatrix setRotate setScale setSkewX setSkewY setTranslate type
+SVGTransformList = appendItem clear consolidate createSVGTransformFromMatrix getItem initialize insertItemBefore numberOfItems removeItem replaceItem
+SVGUnitTypes
+SVGUseElement = height href width x y
+SVGViewElement = preserveAspectRatio viewBox
+Screen = availHeight availWidth colorDepth height pixelDepth width
+Selection = addRange anchorNode anchorOffset collapse collapse.offset_parameter_optional collapseToEnd collapseToStart containsNode containsNode.partialContainment_parameter_optional deleteFromDocument empty extend extend.offset_parameter_optional focusNode focusOffset getRangeAt isCollapsed rangeCount removeAllRanges selectAllChildren setBaseAndExtent setPosition toString type
+Storage = clear getItem key length removeItem setItem
+StorageEvent = StorageEvent key newValue oldValue storageArea url
+StyleSheet = disabled href media ownerNode parentStyleSheet title type
+StyleSheetList = item length
+Text = Text splitText wholeText
+TextMetrics = width
+TextTrack = activeCues addCue cuechange_event cues kind label language mode removeCue
+TextTrackCue = endTime enter_event exit_event id pauseOnExit startTime track
+TextTrackCueList = getCueById length
+TextTrackList = addtrack_event length
+TimeRanges = end length start
+TrackEvent = TrackEvent track
+TransitionEvent = TransitionEvent elapsedTime propertyName
+TreeWalker = currentNode filter firstChild lastChild nextNode nextSibling parentNode previousNode previousSibling root whatToShow
+UIEvent = UIEvent detail view
+URL = createObjectURL_static hash host hostname href pathname port protocol revokeObjectURL_static search
+VTTCue = getCueAsHTML text
+ValidityState = badInput customError patternMismatch rangeOverflow rangeUnderflow stepMismatch tooLong typeMismatch valid valueMissing
+VideoPlaybackQuality = creationTime droppedVideoFrames totalVideoFrames
+WEBGL_depth_texture
+WEBGL_lose_context = loseContext restoreContext
+WaveShaperNode = curve oversample
+WebGLActiveInfo = name size type
+WebGLBuffer
+WebGLContextEvent = WebGLContextEvent statusMessage
+WebGLFramebuffer
+WebGLProgram
+WebGLRenderbuffer
+WebGLRenderingContext = activeTexture attachShader bindAttribLocation bindBuffer bindFramebuffer bindRenderbuffer bindTexture blendColor blendEquation blendEquationSeparate blendFunc blendFuncSeparate bufferData bufferSubData canvas checkFramebufferStatus clear clearColor clearDepth clearStencil colorMask compileShader compressedTexImage2D compressedTexSubImage2D copyTexImage2D copyTexSubImage2D createBuffer createFramebuffer createProgram createRenderbuffer createShader createTexture cullFace deleteBuffer deleteFramebuffer deleteProgram deleteRenderbuffer deleteShader deleteTexture depthFunc depthMask depthRange detachShader disable disableVertexAttribArray drawArrays drawElements drawingBufferHeight drawingBufferWidth enable enableVertexAttribArray finish flush framebufferRenderbuffer framebufferTexture2D frontFace generateMipmap getActiveAttrib getActiveUniform getAttachedShaders getAttribLocation getBufferParameter getContextAttributes getError getExtension getFramebufferAttachmentParameter getParameter getProgramInfoLog getProgramParameter getRenderbufferParameter getShaderInfoLog getShaderParameter getShaderPrecisionFormat getShaderSource getSupportedExtensions getTexParameter getUniform getUniformLocation getVertexAttrib getVertexAttribOffset hint isBuffer isContextLost isEnabled isFramebuffer isProgram isRenderbuffer isShader isTexture lineWidth linkProgram pixelStorei polygonOffset readPixels renderbufferStorage sampleCoverage scissor shaderSource stencilFunc stencilFuncSeparate stencilMask stencilMaskSeparate stencilOp stencilOpSeparate texParameterf texParameteri uniform1f uniform1fv uniform1i uniform1iv uniform2f uniform2fv uniform2i uniform2iv uniform3f uniform3fv uniform3i uniform3iv uniform4f uniform4fv uniform4i uniform4iv uniformMatrix2fv uniformMatrix3fv uniformMatrix4fv useProgram validateProgram vertexAttrib1f vertexAttrib1fv vertexAttrib2f vertexAttrib2fv vertexAttrib3f vertexAttrib3fv vertexAttrib4f vertexAttrib4fv vertexAttribPointer viewport
+WebGLShader
+WebGLShaderPrecisionFormat = precision rangeMax rangeMin
+WebGLTexture
+WebGLUniformLocation
+WebGLVertexArrayObjectOES
+WebSocket = WebSocket binaryType bufferedAmount close close_event error_event extensions message_event open_event protocol protocol_rfc_6455 readyState send url worker_support
+WheelEvent = WheelEvent deltaMode deltaX deltaY deltaZ
+Window = DOMContentLoaded_event alert blur_event cancelAnimationFrame close closed confirm document error_event focus focus_event frameElement frames getComputedStyle getComputedStyle.pseudo_element_support getSelection hashchange_event history innerHeight innerWidth length load_event localStorage location locationbar matchMedia menubar moveBy moveTo name navigator offline_event online_event opener outerHeight outerWidth pagehide_event pageshow_event parent personalbar popstate_event postMessage postMessage.transfer_parameter prompt requestAnimationFrame resizeBy resizeTo resize_event screen screenLeft screenTop screenX screenY scroll scrollBy scrollTo scrollX scrollY scrollbars self sessionStorage statusbar stop storage_event toolbar top unload_event window
+Worker = Worker error_event message_event postMessage terminate
+WorkerGlobalScope = error_event importScripts location navigator self
+WorkerLocation = hash host hostname href pathname port protocol search toString
+WorkerNavigator = appCodeName appName appVersion language onLine platform product userAgent
+XMLHttpRequest = XMLHttpRequest abort abort_event error_event getAllResponseHeaders getResponseHeader load_event loadend_event loadstart_event open overrideMimeType progress_event readyState readystatechange_event response responseText responseType responseType.arraybuffer_value responseType.blob_value responseType.document_value responseXML send send.body_ArrayBufferView_type send.body_ArrayBuffer_type send.body_Blob_type send.body_FormData_type setRequestHeader status statusText timeout timeout_event upload withCredentials worker_support
+XMLHttpRequestEventTarget
+XMLHttpRequestUpload = abort_event error_event load_event loadend_event loadstart_event progress_event timeout_event
+XMLSerializer = XMLSerializer serializeToString
+XPathEvaluator = XPathEvaluator createExpression evaluate
+XPathExpression = evaluate
+XPathResult = booleanValue invalidIteratorState iterateNext numberValue resultType singleNodeValue snapshotItem snapshotLength stringValue
+XSLTProcessor = XSLTProcessor clearParameters getParameter importStylesheet removeParameter reset setParameter transformToDocument transformToFragment
+atob = worker_support
+btoa = worker_support
+clearInterval = worker_support
+clearTimeout = worker_support
+console = assert_static clear_static count_static debug_static dir_static dirxml_static error_static groupCollapsed_static groupEnd_static group_static info_static log_static substitution_strings table_static timeEnd_static time_static trace_static warn_static worker_support
+indexedDB = worker_support
+performance = worker_support
+setInterval = supports_parameters_for_callback worker_support
+setTimeout = supports_parameters_for_callback worker_support
+
+[js.builtins]
+Array = Array concat every filter forEach indexOf isArray join lastIndexOf length map pop push reduce reduceRight reverse shift slice some sort splice toLocaleString toString unshift
+ArrayBuffer = ArrayBuffer byteLength isView slice
+Boolean = Boolean toString valueOf
+DataView = DataView buffer byteLength byteOffset getFloat32 getFloat64 getInt16 getInt32 getInt8 getUint16 getUint32 getUint8 setFloat32 setFloat64 setInt16 setInt32 setInt8 setUint16 setUint32 setUint8
+Date = Date UTC UTC.optional_monthIndex getDate getDay getFullYear getHours getMilliseconds getMinutes getMonth getSeconds getTime getTimezoneOffset getUTCDate getUTCDay getUTCFullYear getUTCHours getUTCMilliseconds getUTCMinutes getUTCMonth getUTCSeconds now parse parse.iso_8601 setDate setFullYear setHours setMilliseconds setMinutes setMonth setSeconds setTime setUTCDate setUTCFullYear setUTCHours setUTCMilliseconds setUTCMinutes setUTCMonth setUTCSeconds toDateString toISOString toJSON toLocaleDateString toLocaleDateString.iana_time_zone_names toLocaleDateString.locales_parameter toLocaleDateString.options_parameter toLocaleString toLocaleString.iana_time_zone_names toLocaleString.locales_parameter toLocaleString.options_parameter toLocaleTimeString toLocaleTimeString.iana_time_zone_names toLocaleTimeString.locales_parameter toLocaleTimeString.options_parameter toString toTimeString toUTCString valueOf
+Error = Error message name toString
+EvalError = EvalError
+Float32Array = Float32Array Float32Array.constructor_without_parameters
+Float64Array = Float64Array Float64Array.constructor_without_parameters
+Function = Function apply apply.generic_arrays_as_arguments bind call length name toString
+Infinity
+Int16Array = Int16Array Int16Array.constructor_without_parameters
+Int32Array = Int32Array Int32Array.constructor_without_parameters
+Int8Array = Int8Array Int8Array.constructor_without_parameters
+Intl = Collator Collator.Collator Collator.Collator.options_caseFirst_parameter Collator.compare Collator.resolvedOptions Collator.supportedLocalesOf DateTimeFormat DateTimeFormat.DateTimeFormat DateTimeFormat.DateTimeFormat.locales_parameter DateTimeFormat.DateTimeFormat.options_parameter DateTimeFormat.DateTimeFormat.options_parameter.options_timeZoneName_parameter DateTimeFormat.DateTimeFormat.options_parameter.options_timeZone_parameter DateTimeFormat.DateTimeFormat.options_parameter.options_timeZone_parameter.iana_time_zones DateTimeFormat.format DateTimeFormat.resolvedOptions DateTimeFormat.supportedLocalesOf NumberFormat NumberFormat.NumberFormat NumberFormat.NumberFormat.locales_parameter NumberFormat.NumberFormat.options_parameter NumberFormat.NumberFormat.options_parameter.options_currency_parameter NumberFormat.NumberFormat.options_parameter.options_localeMatcher_parameter NumberFormat.NumberFormat.options_parameter.options_maximumFractionDigits_parameter NumberFormat.NumberFormat.options_parameter.options_maximumSignificantDigits_parameter NumberFormat.NumberFormat.options_parameter.options_minimumFractionDigits_parameter NumberFormat.NumberFormat.options_parameter.options_minimumIntegerDigits_parameter NumberFormat.NumberFormat.options_parameter.options_minimumSignificantDigits_parameter NumberFormat.NumberFormat.options_parameter.options_style_parameter NumberFormat.NumberFormat.options_parameter.options_useGrouping_parameter NumberFormat.format NumberFormat.resolvedOptions NumberFormat.supportedLocalesOf
+JSON = parse stringify
+Math = E LN10 LN2 LOG10E LOG2E PI SQRT1_2 SQRT2 abs acos asin atan atan2 ceil cos exp floor imul log max min pow random round sin sqrt tan
+NaN
+Number = MAX_VALUE MIN_VALUE NEGATIVE_INFINITY NaN Number POSITIVE_INFINITY isFinite isNaN toExponential toFixed toLocaleString toLocaleString.locales_parameter toLocaleString.options_parameter toPrecision toString valueOf
+Object = Object constructor create defineProperties defineProperty freeze getOwnPropertyDescriptor getOwnPropertyNames getPrototypeOf hasOwnProperty is isExtensible isFrozen isPrototypeOf isSealed keys preventExtensions propertyIsEnumerable seal toLocaleString toString valueOf
+Promise = Promise all catch race reject resolve then
+RangeError = RangeError
+ReferenceError = ReferenceError
+RegExp = RegExp exec global ignoreCase lastIndex multiline source source.empty_regex_string test toString
+String = String charAt charCodeAt concat fromCharCode indexOf lastIndexOf length localeCompare localeCompare.locales_parameter localeCompare.options_parameter match replace search slice split substring toLocaleLowerCase toLocaleUpperCase toLowerCase toString toUpperCase trim unicode_code_point_escapes valueOf
+SyntaxError = SyntaxError
+TypeError = TypeError
+TypedArray = BYTES_PER_ELEMENT buffer byteLength byteOffset constructor_without_parameters index_properties_not_consulting_prototype length name named_properties set subarray toLocaleString toString
+URIError = URIError
+Uint16Array = Uint16Array Uint16Array.constructor_without_parameters
+Uint32Array = Uint32Array Uint32Array.constructor_without_parameters
+Uint8Array = Uint8Array Uint8Array.constructor_without_parameters
+Uint8ClampedArray = Uint8ClampedArray Uint8ClampedArray.constructor_without_parameters
+decodeURI
+decodeURIComponent
+encodeURI
+encodeURIComponent
+eval
+isFinite
+isNaN
+parseFloat
+parseInt = leading_zero_strings_as_decimal
+undefined
+
+[js.functions]
+arguments = length
+get
+set
+
+[js.grammar]
+array_literals
+boolean_literals
+decimal_numeric_literals
+hexadecimal_escape_sequences
+hexadecimal_numeric_literals
+null_literal
+regular_expression_literals
+string_literals
+trailing_commas = trailing_commas_in_object_literals
+unicode_escape_sequences
+
+[js.operators]
+addition
+addition_assignment
+assignment
+bitwise_and
+bitwise_and_assignment
+bitwise_not
+bitwise_or
+bitwise_or_assignment
+bitwise_xor
+bitwise_xor_assignment
+comma
+conditional
+decrement
+delete
+division
+division_assignment
+equality
+function
+greater_than
+greater_than_or_equal
+grouping
+in
+increment
+inequality
+instanceof
+left_shift
+left_shift_assignment
+less_than
+less_than_or_equal
+logical_and
+logical_not
+logical_or
+multiplication
+multiplication_assignment
+new
+null
+object_initializer
+property_accessors
+remainder
+remainder_assignment
+right_shift
+right_shift_assignment
+strict_equality
+strict_inequality
+subtraction
+subtraction_assignment
+this
+typeof
+unary_negation
+unary_plus
+unsigned_right_shift
+unsigned_right_shift_assignment
+void
+
+[js.regular_expressions]
+backreference
+capturing_group
+character_class
+character_class_escape
+character_escape
+disjunction
+input_boundary_assertion
+literal_character
+lookahead_assertion
+non_capturing_group
+quantifier
+wildcard
+word_boundary_assertion
+
+[js.statements]
+block
+break
+const
+continue
+debugger
+do_while
+empty
+for
+for_in
+function
+if_else
+label
+return
+switch
+throw
+try_catch
+var
+while
+
+[css.at-rules]
+charset
+font-face = WOFF font-family font-style font-weight src unicode-range
+import
+media = -webkit-device-pixel-ratio -webkit-max-device-pixel-ratio -webkit-min-device-pixel-ratio -webkit-transform-3d aspect-ratio color grid height media_features nested-queries orientation width
+namespace
+supports
+
+[css.properties]
+-webkit-text-fill-color
+-webkit-text-stroke
+-webkit-text-stroke-color
+-webkit-text-stroke-width
+align-content = flex_context normal
+align-items
+align-self
+animation-direction > alternate alternate-reverse normal reverse
+animation-fill-mode > backwards both forwards none
+animation-iteration-count > infinite
+animation-name > none
+animation-play-state > paused running
+animation-timing-function > ease ease-in ease-in-out ease-out linear step-end step-start
+animation > alternate alternate-reverse auto backwards both ease ease-in ease-in-out ease-out forwards infinite linear none normal reverse step-end step-start
+appearance > button checkbox listbox menulist meter none progress-bar radio searchfield textarea textfield
+backface-visibility > hidden visible
+background = SVG_image_as_background background-clip background-origin border-box bottom center content-box currentColor fixed left local multiple_backgrounds no-repeat none padding-box repeat repeat-x repeat-y right round scroll space top transparent
+background-attachment = multiple_backgrounds scroll
+background-clip = border-box content-box padding-box
+background-color = currentColor transparent
+background-image = gradients multiple_backgrounds none svg_images
+background-origin = border-box content-box padding-box
+background-position = multiple_backgrounds side-relative_values
+background-position-x
+background-position-y
+background-repeat = 2-value multiple_backgrounds no-repeat repeat repeat-x repeat-y round space
+background-size = auto contain cover
+border = currentColor dashed dotted double groove hidden inset medium none outset ridge solid thick thin transparent
+border-bottom = currentColor dashed dotted double groove hidden inset medium none outset ridge solid thick thin transparent
+border-bottom-color = currentColor transparent
+border-bottom-left-radius = elliptical_corners percentages
+border-bottom-right-radius = elliptical_corners percentages
+border-bottom-style = dashed dotted double groove hidden inset none outset ridge solid
+border-bottom-width = medium thick thin
+border-collapse
+border-color = currentColor transparent
+border-image = fill gradient none optional_border_image_slice repeat round space stretch
+border-image-outset
+border-image-repeat = repeat round stretch
+border-image-slice
+border-image-source = none
+border-image-width = auto
+border-left = currentColor dashed dotted double groove hidden inset medium none outset ridge solid thick thin transparent
+border-left-color = currentColor transparent
+border-left-style = dashed dotted double groove hidden inset none outset ridge solid
+border-left-width = medium thick thin
+border-radius = 4_values_for_4_corners elliptical_borders percentages
+border-right = currentColor dashed dotted double groove hidden inset medium none outset ridge solid thick thin transparent
+border-right-color = currentColor transparent
+border-right-style = dashed dotted double groove hidden inset none outset ridge solid
+border-right-width = medium thick thin
+border-spacing
+border-style = dashed dotted double groove hidden inset none outset ridge solid
+border-top = currentColor dashed dotted double groove hidden inset medium none outset ridge solid thick thin transparent
+border-top-color = currentColor transparent
+border-top-left-radius = elliptical_corners percentages
+border-top-right-radius = elliptical_corners percentages
+border-top-style = dashed dotted double groove hidden inset none outset ridge solid
+border-top-width = medium thick thin
+border-width = medium thick thin
+bottom = auto
+box-shadow = inset multiple_shadows none spread_radius
+box-sizing = border-box content-box
+caption-side
+clear = both left none right
+clip-path > svg_elements
+color = currentColor transparent
+column-count > auto
+column-gap = normal
+column-rule-color > currentColor transparent
+column-rule-style > dashed dotted double groove hidden inset none outset ridge solid
+column-rule-width > medium thick thin
+column-rule > currentColor dashed dotted double groove hidden inset medium none outset ridge solid thick thin transparent
+column-width > auto
+content = close-quote no-close-quote no-open-quote none normal open-quote url
+counter-increment = list-item none
+counter-reset = none
+direction = ltr rtl
+display = block flex inline inline-block inline-flex inline-table list-item none table table-caption table-cell table-column table-column-group table-footer-group table-header-group table-row table-row-group
+empty-cells = hide show
+fill = none
+fill-opacity
+fill-rule = evenodd nonzero
+filter > none
+flex = auto none
+flex-basis = auto
+flex-direction = column row
+flex-flow = column column-reverse nowrap row row-reverse wrap wrap-reverse
+flex-grow
+flex-shrink
+flex-wrap = nowrap wrap wrap-reverse
+float = left none right
+flood-color = currentColor transparent
+flood-opacity
+font = caption icon menu message-box small-caption status-bar
+font-family = cursive fantasy monospace sans-serif serif
+font-feature-settings > normal
+font-size
+font-style = italic normal oblique
+font-variant = normal
+font-weight = bold bolder lighter normal
+height = auto
+justify-content
+left = auto
+letter-spacing = normal
+lighting-color = currentColor transparent
+line-height = normal
+list-style = inside none outside
+list-style-image = none
+list-style-position = inside outside
+list-style-type = armenian circle decimal decimal-leading-zero disc georgian hebrew hiragana hiragana-iroha katakana katakana-iroha lower-alpha lower-greek lower-roman none square upper-alpha upper-latin upper-roman
+margin = auto
+margin-bottom = auto
+margin-left = auto
+margin-right = auto
+margin-top = auto
+marker = none
+marker-end = none
+marker-mid = none
+marker-start = none
+mask-image > multiple_mask_images svg_masks
+max-height = none
+max-width = none
+min-height = auto
+min-width = auto
+object-position > bottom center left right top
+opacity
+order
+outline-color = currentColor transparent
+outline-offset
+outline-style = auto dashed dotted double groove inset none outset ridge solid
+outline-width = medium thick thin
+outline > currentColor dashed dotted double groove inset medium none outset ridge solid thick thin transparent
+overflow = auto hidden scroll visible
+overflow-wrap = break-word normal
+overflow-x = auto hidden scroll visible
+overflow-y = auto hidden scroll visible
+padding
+padding-bottom
+padding-left
+padding-right
+padding-top
+perspective-origin > bottom center left right top
+perspective > none
+pointer-events = all auto fill html_elements none painted stroke visible visibleFill visiblePainted visibleStroke
+position = absolute fixed relative static
+quotes = none
+right = auto
+stop-color = currentColor transparent
+stop-opacity
+stroke = none
+stroke-dasharray = none
+stroke-dashoffset
+stroke-linecap = butt round square
+stroke-linejoin = bevel miter round
+stroke-miterlimit
+stroke-opacity
+stroke-width
+table-layout = auto fixed
+text-align = justify
+text-anchor = end middle start
+text-decoration = line-through none overline underline
+text-indent
+text-overflow = clip ellipsis
+text-shadow = none
+text-transform = capitalize lowercase none uppercase
+top = auto
+transform-origin > bottom center left right svg_elements three_value_syntax top
+transform-style > flat preserve-3d
+transform > 3d none
+transition = all ease ease-in ease-in-out ease-out linear none step-end step-start
+transition-delay
+transition-duration
+transition-property = IDENT_value all none
+transition-timing-function = ease ease-in ease-in-out ease-out linear step-end step-start
+unicode-bidi = bidi-override embed normal
+user-select > auto none text
+vertical-align = baseline bottom middle sub super text-bottom text-top top
+visibility = collapse hidden visible
+white-space = normal nowrap pre pre-line pre-wrap textarea_support
+width = auto is_animatable
+word-break = break-all normal
+word-spacing = normal
+z-index = auto negative_values
+
+[css.selectors]
+active = non_a_elements
+after = animation_and_transition_support
+attribute
+before = animation_and_transition_support
+checked
+child
+class
+descendant
+disabled
+empty
+enabled
+first-child
+first-letter
+first-line
+first-of-type
+focus
+hover = a_elements all_elements
+id
+in-range
+indeterminate = checkbox progress
+invalid
+lang
+last-child
+last-of-type
+link
+list
+namespace
+next-sibling
+not
+nth-child
+nth-last-child
+nth-last-of-type
+nth-of-type
+only-child
+only-of-type
+optional
+out-of-range
+required
+root
+subsequent-sibling
+target
+type = namespaces
+universal = namespaces
+valid
+visited
+
+[css.types]
+angle = deg grad rad turn
+angle-percentage
+attr
+calc = gradient_color_stops number_values
+color = currentcolor hsl named-color named-color.transparent rgb rgb_hexadecimal_notation system-color transparent
+counter
+counters
+dimension
+easing-function = cubic-bezier steps
+global_keywords = inherit initial
+gradient = linear-gradient linear-gradient.to linear-gradient.unitless_0_angle radial-gradient radial-gradient.at repeating-linear-gradient repeating-linear-gradient.to repeating-linear-gradient.unitless_0_angle repeating-radial-gradient repeating-radial-gradient.at
+image
+integer
+length = ch em ex rem vmax vmin
+length-percentage
+line-style
+number
+overflow
+percentage
+position = four_value_syntax keyword_value_syntax
+ratio
+string = unicode_escaped_characters
+time
+transform-function = matrix matrix3d perspective rotate rotate3d rotateX rotateY rotateZ scale scale3d scaleX scaleY scaleZ skew skewX skewY translate translate3d translateX translateY translateZ
+url
+
+[html.elements]
+a = download href hreflang rel rel.noreferrer target type
+abbr
+address
+area = alt coords href rel rel.noreferrer shape target
+article
+aside
+audio = autoplay controls loop muted preload src
+b
+base = href href.relative_url target
+bdo
+blockquote = cite
+body
+br
+button = disabled form formaction formenctype formmethod formnovalidate formtarget name type value
+canvas = height width
+caption
+cite
+code
+col = span
+colgroup = span
+dd
+del = cite datetime
+dfn
+div
+dl
+dt
+em
+embed = height src width
+fieldset = form name
+figcaption
+figure
+footer
+form = accept-charset action autocomplete enctype method name novalidate target
+h1
+h2
+h3
+h4
+h5
+h6
+head
+header
+hgroup
+hr
+html
+i
+iframe = height name sandbox sandbox.allow-popups src width
+img = alt crossorigin height ismap src usemap width
+input = accept alt autocomplete checked disabled form formaction formenctype formmethod formnovalidate formtarget max maxlength min multiple name pattern placeholder readonly required size src step type_button type_checkbox type_date type_email type_file type_hidden type_image type_number type_password type_radio type_reset type_search type_submit type_tel type_text type_time type_url
+ins = cite datetime
+kbd
+label = for
+legend
+li = value
+link = disabled href hreflang media rel type
+main
+map = name
+mark
+menu
+meta = charset content http-equiv http-equiv.refresh name
+meter = high low max min optimum value
+nav
+noscript
+object = data form height name type width
+ol = start type
+optgroup = label
+option = disabled label selected value
+output = for form name
+p
+pre
+progress = max value
+q = cite
+rp
+rt
+ruby
+s
+samp
+script = async crossorigin defer src type
+section
+select = disabled form multiple name required
+small
+source = media src type
+span
+strong
+style = media
+sub
+sup
+table
+tbody
+td = colspan headers rowspan
+template
+textarea = cols disabled form maxlength name placeholder readonly required rows wrap
+tfoot
+th = abbr colspan headers rowspan scope
+thead
+title
+tr
+track = default kind label src srclang
+u
+ul
+var
+video = autoplay controls height loop muted poster preload src width
+wbr
+
+[html.global_attributes]
+accesskey
+class
+contenteditable
+data_attributes
+dir
+draggable
+hidden
+id
+lang
+style
+tabindex
+title

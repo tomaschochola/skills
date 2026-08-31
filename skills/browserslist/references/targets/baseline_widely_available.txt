@@ -1,0 +1,9 @@
+chrome >= 120
+and_chr >= 120
+edge >= 120
+opera >= 106
+samsung >= 25
+firefox >= 122
+and_ff >= 122
+safari >= 17.2
+ios_saf >= 17.2
