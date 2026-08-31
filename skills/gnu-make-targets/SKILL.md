@@ -1,13 +1,13 @@
 ---
-name: make-standard-targets
-description: Use when selecting, reviewing, or documenting GNU Make goals and targets and you need a standalone catalog centered on GNU-standard target names, canonical core targets, and commonly used extra targets, with exact English definitions where they exist and exact sample target snippets where they are shown.
+name: gnu-make-targets
+description: Use whenever creating, modifying, reviewing, or documenting a GNU Makefile to select and preserve standard, canonical, conventional, and best-practice goal and target names.
 ---
 
-# Make Standard Targets
+# GNU Make Targets
 
-This skill is a standalone catalog of GNU Make target and goal names. It focuses only on target names, their definitions, and exact target snippets where a documented example is available.
+Use this catalog whenever working with a GNU Makefile. Before naming or changing a goal or target, check the applicable standard, canonical, conventional, or common name below and prefer its documented semantics over inventing a synonym.
 
-When a documented target has an exact English definition, keep that wording exactly. If the target is repeatedly used but not defined in one short formal sentence, summarize its common use conservatively. Never invent sample targets. If there is no exact sample in the documented material, do not add one.
+Apply only relevant entries. Repository requirements and established interfaces take precedence; do not rename existing targets solely to match this catalog.
 
 ## GNU standard targets
 
