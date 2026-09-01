@@ -876,4 +876,3 @@ CSMR.2008.4493298.
 • Laws of software evolution revisited. European workshop on software
 process technology. Berlin, Heidelberg: Springer Berlin Heidelberg, 1996
 14
-
