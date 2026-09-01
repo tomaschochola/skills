@@ -34,4 +34,5 @@ max_line_length = off
 
 [Makefile]
 indent_style = tab
+max_line_length = off
 ```
