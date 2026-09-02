@@ -2,6 +2,8 @@
 
 When `.devcontainer/devcontainer.json` exists, use Dev Container CLI for project-dependent commands. Start the environment, then target the main container or a declared Compose service:
 
+Run `devcontainer`, `docker`, and `docker compose` directly on the host; Docker-in-Docker is not configured.
+
 ```bash
 devcontainer up --workspace-folder .
 devcontainer exec --workspace-folder . <command> [arguments...]
