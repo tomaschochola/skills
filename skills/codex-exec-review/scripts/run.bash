@@ -80,7 +80,7 @@ codex exec \
     -c 'model_reasoning_effort="high"' \
     -c 'model_verbosity="high"' \
     -c 'project_doc_max_bytes=0' \
-    -c 'web_search="disabled"' \
+    -c 'web_search="live"' \
     -c 'check_for_update_on_startup=false' \
     -c 'analytics.enabled=false' \
     -c 'feedback.enabled=false' \
