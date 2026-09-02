@@ -84,4 +84,4 @@ codex exec \
     -c 'check_for_update_on_startup=false' \
     -c 'analytics.enabled=false' \
     -c 'feedback.enabled=false' \
-    review "${target[@]}"
+    review "${target[@]}" 2>/dev/null

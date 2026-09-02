@@ -69,4 +69,4 @@ codex exec \
     -c 'check_for_update_on_startup=false' \
     -c 'analytics.enabled=false' \
     -c 'feedback.enabled=false' \
-    - < "$prompt_file"
+    - < "$prompt_file" 2>/dev/null
