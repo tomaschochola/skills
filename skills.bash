@@ -36,5 +36,4 @@ python3 "$installer" \
         skills/browserslist \
         skills/codex-exec-advisor \
         skills/codex-exec-review \
-        skills/gnu-make-targets \
     --method git
