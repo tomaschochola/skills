@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -Eeuo pipefail
 
 cd -- "$(dirname -- "$0")"
 
@@ -34,5 +34,7 @@ python3 "$installer" \
     --repo tomaschochola/skills \
     --path \
         skills/browserslist \
+        skills/codex-exec-advisor \
+        skills/codex-exec-review \
         skills/gnu-make-targets \
     --method git
