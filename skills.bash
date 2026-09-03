@@ -34,6 +34,5 @@ python3 "$installer" \
     --repo tomaschochola/skills \
     --path \
         skills/browserslist \
-        skills/codex-exec-advisor \
         skills/codex-exec-review \
     --method git

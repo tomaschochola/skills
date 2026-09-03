@@ -23,12 +23,8 @@ Code review requires a Git repository. Resolve the absolute repository path, the
 "<absolute-skill-directory>/scripts/run.bash" "<absolute-repository-path>" <review-target>
 ```
 
-The runner always passes `--skip-git-repo-check` to Codex while independently validating that the selected working directory is a Git repository. It owns the complete external-review CLI preset so callers do not duplicate or drift its flags.
-
-Wait until the process exits. Do not add a timeout or interrupt it because of silence or elapsed time. A nonzero exit is a failed review, not a review result.
+Wait until the process exits. Do not add a timeout or stop, restart, or interrupt it because of silence or elapsed time. A nonzero exit is a failed review, not a review result.
 
 Treat reviewer output as candidate findings. Validate every candidate against the reviewed changes, surrounding code, tests, repository instructions, user requirements, intended behavior, and current context. Reject false positives, unsupported claims, intentional behavior, accepted tradeoffs, and pre-existing or out-of-scope issues.
 
-The explicit external-review request authorizes review only. Do not modify the reviewed work unless the user also requests fixes. If fixes are authorized, resolve confirmed relevant findings, rerun appropriate verification, and repeat the external review until no confirmed relevant finding remains.
-
-Use only validated findings in the final answer. Do not expose or attribute raw reviewer output.
+The explicit external-review request authorizes review only. Do not modify the reviewed work unless the user also requests fixes. If fixes are authorized, resolve confirmed relevant findings, rerun appropriate verification, and repeat the external review until no confirmed relevant finding remains. Report any finding that cannot be resolved within repository or task constraints as a blocker.

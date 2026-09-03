@@ -4,6 +4,8 @@
 
 Use the native freeform `apply_patch` tool only to edit the contents of existing regular text files by adding, removing, replacing, or moving lines. Do not use it to create, delete, rename, copy, move, or truncate paths or to change metadata or links. Call it directly; do not invoke it through a shell or substitute another writer. Repository-defined formatters, generators, migrations, package managers, build tools, and tests may write their intended generated artifacts, but must not be used as substitutes for editing existing regular text files.
 
+Read each target text file completely before editing it; searches and partial reads are insufficient.
+
 ## Filesystem commands
 
 Use the following modern GNU/Linux templates for operations outside existing text-file contents. Prefer one purpose-built utility invocation with its native safety and output options over shell orchestration, prechecks, postchecks, or reimplementing the operation. These templates require the documented GNU/Linux implementations and options; if an option is unavailable, report the blocker instead of silently weakening the operation. Treat every placeholder as one fully resolved, nonempty argument, preserve the quoting shown, and use absolute local paths where a utility can interpret an operand as a URI, remote location, expression, or option. Interpret documented nonzero query results correctly: `rg` returns 1 for no matches, while `cmp` and `diff` return 1 for differences; these are results, not operational errors.
