@@ -2,7 +2,7 @@
 
 The host is the control plane and default workspace. Perform source changes, filesystem and repository operations, and environment orchestration directly on the host.
 
-When `.devcontainer/devcontainer.json` exists, use the Dev Container to execute the repository-defined toolchain and project dependencies, Make targets, package managers, or project commands.
+When `.devcontainer/devcontainer.json` exists, use the Dev Container CLI to execute the repository-defined toolchain and project dependencies, Make targets, package managers, or project commands.
 
 Run `devcontainer`, `docker`, and `docker compose` directly on the host. Docker-in-Docker is not configured.
 
