@@ -13,7 +13,7 @@ devcontainer up --workspace-folder .
 devcontainer exec --workspace-folder . <command> [arguments...]
 devcontainer exec --workspace-folder . make fix
 devcontainer exec --workspace-folder . make check
-devcontainer exec --workspace-folder . /bin/bash -c ''
-devcontainer exec --workspace-folder . /bin/sh -c ''
-docker compose exec -T <service> <service-command>
+devcontainer exec --workspace-folder . /bin/bash -c '...'
+devcontainer exec --workspace-folder . /bin/sh -c '...'
+docker compose exec -T <service> <command> [arguments...]
 ```
