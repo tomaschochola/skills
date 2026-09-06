@@ -1,5 +1,7 @@
 # Filesystem
 
+For inline content text editing inside existing regular text files (add, remove, replace, or move lines), only use the native harness dedicated predefined tool; do not invoke it through a shell or substitute another writer. For other filesystem operations, use a dedicated MCP tool when one is available for that operation. Otherwise fall back to the validated templates below; do not invent custom commands when a native tool, an available MCP operation, or a template below already covers the operation.
+
 ## Filesystem commands
 
 Use the following modern GNU/Linux templates for operations outside existing text-file contents. Prefer one purpose-built utility invocation with its native safety and output options over shell orchestration, prechecks, postchecks, or reimplementing the operation. These templates require the documented GNU/Linux implementations and options; if an option is unavailable, report the blocker instead of silently weakening the operation. Treat every placeholder as one fully resolved, nonempty argument, preserve the quoting shown, and use absolute local paths where a utility can interpret an operand as a URI, remote location, expression, or option. Interpret documented nonzero query results correctly: `rg` returns 1 for no matches, while `cmp` and `diff` return 1 for differences; these are results, not operational errors.
@@ -28,6 +30,9 @@ find -P "<absolute-root>" -xdev -printf 'mode=%M uid=%U gid=%G bytes=%s mtime=%T
 
 # Read bounded text with line numbers.
 bat --decorations=always --style=numbers --color=never --paging=never --wrap=never --line-range '<start>:<end>' -- "<file>"
+
+# Read whole text file with line numbers.
+bat --decorations=always --style=numbers --color=never --paging=never --wrap=never -- "<file>"
 
 # Reveal exact whitespace and control characters in a bounded range.
 sed -n -l 0 '<start>,<end>l' -- "<file>"
@@ -75,7 +80,7 @@ mkdir --mode='<octal-mode>' -- "<new-directory>"
 # Create missing directory parents with explicit final mode.
 mkdir --parents --mode='<octal-mode>' -- "<directory>"
 
-# Create a new empty file without clobbering and set its numeric mode; populate a text file afterward with apply_patch.
+# Create a new empty file without clobbering and set its numeric mode; populate a text file afterward with the native harness dedicated predefined tool.
 dd if=/dev/null of="<new-file>" conv=excl status=none && chmod --changes --no-dereference -- '<octal-mode>' "<new-file>"
 
 # Copy one file or symlink without clobbering while preserving all metadata supported by the source, destination, privileges, and cp implementation.
@@ -181,7 +186,7 @@ flock --exclusive --timeout='<seconds>' --conflict-exit-code=75 -- "<lock-file-o
 
 - Do not edit text with shell redirection, `tee`, in-place stream editors, interpreters, custom patchers, patch files, or interactive editors.
 - Do not use `touch`, `truncate`, or `dd` as text editors.
-- Do not truncate or replace an existing regular text file; edit it only through `apply_patch`. Same-directory atomic publication is reserved for intended generated artifacts and non-text outputs.
+- Do not truncate or replace an existing regular text file; edit it only through the native harness dedicated predefined tool. Same-directory atomic publication is reserved for intended generated artifacts and non-text outputs.
 - Do not use force-clobber flags, archive destination overwrites, or silent collision modes such as `cp -n` and `mv -n`.
 - Do not use unquoted paths or globs in consequential operations.
 - Do not use `rm -rf`, `find -delete`, `gio trash --empty`, `rsync --delete`, destructive globs, or empty or unresolved variables in destructive commands.

@@ -1,6 +1,13 @@
 # EditorConfig
 
-When editing text files, repository formatters, language conventions, and applicable `.editorconfig` settings override these defaults. Apply unspecified properties without changing repository configuration:
+When editing text files, resolve formatting in this order:
+
+1. **Repository-enforced formatters** (e.g., `prettier`, `gofmt`, `rustfmt`, `black`) — if the repo has them, they win.
+2. **The project's `.editorconfig`** — if present, it defines the project's intent.
+3. **Language community conventions** — only as a reference; do not enforce if they conflict with (1) or (2).
+4. **The following EditorConfig snippet** — global fallback defaults for any property not determined by (1)–(3). Apply these values without modifying the repository's `.editorconfig`.
+
+This fallback is used across my repositories. Individual repos may override any value via their own `.editorconfig` or formatter config; treat those as authoritative for that repo.
 
 ```editorconfig
 root = true
