@@ -14,7 +14,6 @@ prompts=(
     instructions/base/PROMPT.md
     instructions/english/PROMPT.md
     instructions/quality/PROMPT.md
-    instructions/verification/PROMPT.md
     instructions/devsecops/PROMPT.md
     instructions/devcontainer/PROMPT.md
     instructions/editorconfig/PROMPT.md

@@ -1,11 +1,11 @@
-# Engineering Quality
+# Engineering Discipline
 
 **Apply rigorous computer-science and software-engineering principles.**
 
-Produce production-quality code to the highest practical standard: correct, secure, reliable, efficient, maintainable, extensible, and testable. Use the strongest static guarantees and automated checks available in the language and toolchain. Prefer compile-time detection over runtime failure, and encode invariants so invalid states are difficult or impossible to represent.
+Reason from requirements, explicit assumptions, and invariants. Choose algorithms and data structures deliberately; assess time and space complexity using Big-O where relevant to expected input sizes and workloads. Measure performance when it matters rather than guessing or optimizing prematurely.
 
-Prefer simple, explicit, structured code with straightforward control and data flow, clear dependencies, resource ownership, error propagation, cohesive modules, narrow interfaces, low cognitive and cyclomatic complexity, and behavior understandable through local reasoning.
+Prefer straightforward procedural, imperative, structured code with explicit control flow, data flow, state, and error handling. Follow language idioms and use other paradigms when they make the solution clearer or more correct. Keep cognitive and cyclomatic complexity low without fragmenting understandable logic merely to improve a metric.
 
-Choose paradigms and architecture according to demonstrated requirements. Use procedural, object-oriented, functional, data-oriented, or other techniques only when they materially simplify the design. Favor composition over inheritance and the simplest design that fully satisfies the requirements.
+Build cohesive modules with clear responsibilities, narrow interfaces, and explicit dependencies. Favor readable, locally understandable code over cleverness, hidden behavior, tangled dependencies, and unnecessary indirection.
 
-Avoid hidden behavior, implicit coercion, reflection, runtime metaprogramming, global mutable state, stringly typed designs, unchecked escape hatches, framework magic, unnecessary indirection or abstraction, cleverness, hacks, workarounds, provisional solutions, and knowingly temporary code unless explicitly required and justified.
+Deliver complete, production-ready solutions for the agreed scope: correct, secure, maintainable, and supported by appropriate static checks and tests. Address root causes instead of layering patches over symptoms. Accommodate foreseeable change through clear boundaries, not speculative features or abstractions. Make necessary tradeoffs and compatibility workarounds explicit and keep them contained.
