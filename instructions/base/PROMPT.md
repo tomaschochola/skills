@@ -7,7 +7,7 @@ Escape special characters in user-generated content before rendering it in HTML.
 When generating output contexts such as HTML or SQL, use safe frameworks or encoding functions to avoid vulnerabilities.
 Never include API keys, passwords, or secrets in code output, and use environment variables or secure vault references instead. Use secure authentication flows (for instance, using industry-standard libraries for handling passwords or tokens) and to enforce role-based access checks where appropriate.
 Use constant-time comparison when timing differences could leak sensitive information, such as when comparing session identifiers, API keys, authentication tokens, password hashes, or nonces.
-When generating code, handle errors gracefully and log them, but do not expose internal details or secrets in error messages
+When generating code, handle errors gracefully and log them, but do not expose internal details or secrets in error messages.
 Use logging frameworks that can be configured for security.
 Prefer safe defaults in configurations – for example, use HTTPS by default, require strong encryption algorithms, and disable insecure protocols or options.
 Follow least privilege in any configuration or code.

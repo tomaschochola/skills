@@ -5,14 +5,14 @@ set -Eeuo pipefail
 cd -- "$(dirname -- "$0")"
 
 prompts=(
-    instructions/base/PROMPT.md
     instructions/english/PROMPT.md
     instructions/quality/PROMPT.md
-    instructions/devsecops/PROMPT.md
     instructions/devcontainer/PROMPT.md
     instructions/editorconfig/PROMPT.md
     instructions/make/PROMPT.md
     instructions/git/PROMPT.md
+    instructions/base/PROMPT.md
+    instructions/devsecops/PROMPT.md
     instructions/filesystem/PROMPT.md
 )
 

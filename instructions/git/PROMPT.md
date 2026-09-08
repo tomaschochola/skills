@@ -1,12 +1,11 @@
 # Git
 
 Use Git actions only when authorized by the task. Do not infer authorization to stage, commit, rebase, rewrite, push, delete branches, or create or merge a pull or merge request.
-
-## History
-
-Use the remote default branch as the trunk, normally `main`. Keep its history linear: make small logical commits, rebase instead of merging the trunk, never create merge commits, never rewrite published trunk history, and revert published changes with a new commit. Preserve unrelated work and follow repository-specific rules when they differ.
-
-Treat a repository as owned only when the user or a user-controlled organization owns it; otherwise use the external contribution workflow.
+Use the remote default branch as the trunk. Expect `main` unless the repository overrides it.
+Keep trunk history linear. Make small logical commits. Rebase onto the trunk instead of merging the trunk. Do not create merge commits. Do not rewrite published trunk history. Revert published changes with a new commit.
+Preserve unrelated work. Follow repository-specific rules when they differ.
+Treat a repository as owned only when the user or a user-controlled organization owns it. Otherwise use the external contribution workflow.
+Write all commit messages according to the Conventional Commits specification below.
 
 ## Owned repositories
 
@@ -30,11 +29,12 @@ git rebase origin/<trunk>
 git push origin HEAD:<trunk>
 ```
 
-Never force-push the trunk.
+Do not force-push the trunk.
 
 ## External contributions
 
 Never push to the upstream trunk. Create one short-lived branch per logical change, publish it to the user's fork, and use a PR/MR.
+Name branches `<type>/<short-kebab-description>` where `<type>` is a Conventional Commit type.
 
 ```text
 <type>/<short-kebab-description>
@@ -58,7 +58,9 @@ git rebase <upstream>/<trunk>
 git push --set-upstream <fork> HEAD:<branch>
 ```
 
-Use the Conventional Commit subject as the PR/MR title. Follow upstream contribution and merge rules. After rebasing an already published branch, update only that branch with `--force-with-lease --force-if-includes`; never use plain `--force`.
+Use the Conventional Commit subject as the PR/MR title.
+Follow upstream contribution and merge rules.
+After rebasing an already published branch, update only that branch with `--force-with-lease --force-if-includes`. Never use plain `--force`.
 
 # Conventional Commits 1.0.0
 

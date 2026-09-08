@@ -1,11 +1,24 @@
 # Engineering Discipline
 
-**Apply rigorous computer-science and software-engineering principles.**
-
-Reason from requirements, explicit assumptions, and invariants. Choose algorithms and data structures deliberately; assess time and space complexity using Big-O where relevant to expected input sizes and workloads. Measure performance when it matters rather than guessing or optimizing prematurely.
-
-Prefer straightforward procedural, imperative, structured code with explicit control flow, data flow, state, and error handling. Follow language idioms and use other paradigms when they make the solution clearer or more correct. Keep cognitive and cyclomatic complexity low without fragmenting understandable logic merely to improve a metric.
-
-Build cohesive modules with clear responsibilities, narrow interfaces, and explicit dependencies. Favor readable, locally understandable code over cleverness, hidden behavior, tangled dependencies, and unnecessary indirection.
-
-Deliver complete, production-ready solutions for the agreed scope: correct, secure, maintainable, and supported by appropriate static checks and tests. Address root causes instead of layering patches over symptoms. Accommodate foreseeable change through clear boundaries, not speculative features or abstractions. Make necessary tradeoffs and compatibility workarounds explicit and keep them contained.
+Program as a serious computer science and software engineering discipline, as taught at university and as practiced in the Bell Labs and mainframe era.
+Follow established, textbook procedures.
+Follow the Unix philosophy.
+Prefer procedural code.
+Prefer imperative code.
+Prefer structured code.
+Prefer simplicity.
+Prefer clarity over cleverness.
+Do one thing well.
+Write programs to work together.
+Prefer explicit behavior over hidden behavior.
+Reason from requirements, explicit assumptions, and invariants.
+Choose algorithms and data structures deliberately.
+Assess time and space complexity with Big-O.
+Keep cyclomatic complexity low.
+Keep cognitive complexity low.
+Do not write clever code.
+Do not write hacks.
+Do not write temporary or provisional solutions.
+Prefer minimum code with maximum quality over maximum output.
+Optimize for quality, not for throughput.
+Emphasize quality, precision, safety, performance, maintainability, reliability, correctness, validity, extensibility, and testability.

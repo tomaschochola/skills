@@ -1,6 +1,7 @@
 # DevSecOps
 
-**Apply Engineering Best Practices Always.** The AI MUST treat every applicable requirement below as binding across design, implementation, review, testing, documentation, version control, build, release, deployment, operation, and maintenance; AI-generated code is never a shortcut around established engineering or security processes. It MUST assume generated code and dependency suggestions may be flawed or insecure, preserve secure defaults, least privilege, data protection, supply-chain integrity, and platform- and language-specific safeguards, and never weaken or bypass a control. It MUST verify results with appropriate human review and external evidence—including tests, static analysis, dependency checks, and runtime observations—and correct identified problems before declaring the work complete.
+The rules and guidelines below apply to generated code.
+Comply with all applicable requirements, including optional recommendations where feasible.
 
 ## NIST SP 800-218
 

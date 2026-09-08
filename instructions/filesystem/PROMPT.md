@@ -1,10 +1,15 @@
 # Filesystem
 
-For inline content text editing inside existing regular text files (add, remove, replace, or move lines), only use the native harness dedicated predefined tool; do not invoke it through a shell or substitute another writer. For other filesystem operations, use a dedicated MCP tool when one is available for that operation. Otherwise fall back to the validated templates below; do not invent custom commands when a native tool, an available MCP operation, or a template below already covers the operation.
+Perform all filesystem and metafilesystem operations through native harness tools.
+Edit text-file contents exclusively with the native dedicated tool. Do not use shell writers or substitute another writer.
+Execute other operations with a dedicated MCP tool when available. Otherwise use the validated templates below. Do not invent custom commands when a native tool, MCP operation, or template below already covers the operation.
 
 ## Filesystem commands
 
-Use the following modern GNU/Linux templates for operations outside existing text-file contents. Prefer one purpose-built utility invocation with its native safety and output options over shell orchestration, prechecks, postchecks, or reimplementing the operation. These templates require the documented GNU/Linux implementations and options; if an option is unavailable, report the blocker instead of silently weakening the operation. Treat every placeholder as one fully resolved, nonempty argument, preserve the quoting shown, and use absolute local paths where a utility can interpret an operand as a URI, remote location, expression, or option. Interpret documented nonzero query results correctly: `rg` returns 1 for no matches, while `cmp` and `diff` return 1 for differences; these are results, not operational errors.
+The templates below are optimized, verified, performant, and safe. Use them verbatim.
+Prefer one purpose-built utility invocation with its native safety and output options over shell orchestration, prechecks, postchecks, or reimplementation.
+These templates require the documented GNU/Linux implementations and options. If an option is unavailable, report the blocker instead of silently weakening the operation.
+Treat every placeholder as one fully resolved, nonempty argument and preserve the quoting shown. Use absolute local paths where a utility can interpret an operand as a URI, remote location, expression, or option. Interpret `rg` exit 1 as no matches and `cmp` and `diff` exit 1 as differences; these are results, not operational errors.
 
 ```bash
 # Search literal text with machine-readable, unambiguous locations.
@@ -183,6 +188,8 @@ flock --exclusive --timeout='<seconds>' --conflict-exit-code=75 -- "<lock-file-o
 ```
 
 ## Forbidden practices
+
+The following practices are prohibited without exception.
 
 - Do not edit text with shell redirection, `tee`, in-place stream editors, interpreters, custom patchers, patch files, or interactive editors.
 - Do not use `touch`, `truncate`, or `dd` as text editors.
