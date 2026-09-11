@@ -1,15 +1,6 @@
-# Filesystem
+## Filesystem
 
-Perform all filesystem and metafilesystem operations through native harness tools.
-Edit text-file contents exclusively with the native dedicated tool. Do not use shell writers or substitute another writer.
-Execute other operations with a dedicated MCP tool when available. Otherwise use the validated templates below. Do not invent custom commands when a native tool, MCP operation, or template below already covers the operation.
-
-## Filesystem commands
-
-The templates below are optimized, verified, performant, and safe. Use them verbatim.
-Prefer one purpose-built utility invocation with its native safety and output options over shell orchestration, prechecks, postchecks, or reimplementation.
-These templates require the documented GNU/Linux implementations and options. If an option is unavailable, report the blocker instead of silently weakening the operation.
-Treat every placeholder as one fully resolved, nonempty argument and preserve the quoting shown. Use absolute local paths where a utility can interpret an operand as a URI, remote location, expression, or option. Interpret `rg` exit 1 as no matches and `cmp` and `diff` exit 1 as differences; these are results, not operational errors.
+Perform in-file text edits only with native dedicated file capabilities exposed in this session. Prefer native dedicated capabilities strongly for all other filesystem and metafilesystem operations. As fallback, use only the prescribed bash invocations below and only when a canonical variant for the intent exists there. Where the prescribed implementation is unavailable, use the closest portable equivalent preserving no-clobber, no-dereference, NUL-delimit, stay-on-device and preserve-root properties. Do not invent alternative shell constructions.
 
 ```bash
 # Search literal text with machine-readable, unambiguous locations.
@@ -186,20 +177,3 @@ diff --recursive --unified --no-dereference -- "<left-directory>" "<right-direct
 # Run one command under an exclusive bounded advisory lock.
 flock --exclusive --timeout='<seconds>' --conflict-exit-code=75 -- "<lock-file-or-directory>" "<command>" "<argument-1>" "<argument-2>"
 ```
-
-## Forbidden practices
-
-The following practices are prohibited without exception.
-
-- Do not edit text with shell redirection, `tee`, in-place stream editors, interpreters, custom patchers, patch files, or interactive editors.
-- Do not use `touch`, `truncate`, or `dd` as text editors.
-- Do not truncate or replace an existing regular text file; edit it only through the native harness dedicated predefined tool. Same-directory atomic publication is reserved for intended generated artifacts and non-text outputs.
-- Do not use force-clobber flags, archive destination overwrites, or silent collision modes such as `cp -n` and `mv -n`.
-- Do not use unquoted paths or globs in consequential operations.
-- Do not use `rm -rf`, `find -delete`, `gio trash --empty`, `rsync --delete`, destructive globs, or empty or unresolved variables in destructive commands.
-- Do not run destructive or metadata-changing recursive operations against `/`, a home directory, a workspace or repository root, or a mount root.
-- Do not recursively change permissions, ownership, groups, ACLs, xattrs, capabilities, or filesystem flags.
-- Do not dereference an untrusted symlink for copying, metadata changes, or content inspection.
-- Do not extract an untrusted or unauthenticated archive with host tools; use an isolated, resource-limited sandbox designed for hostile input.
-- Do not treat a checksum fetched with an artifact as proof of authenticity; verify a signature or authenticated manifest from an independent trust root.
-- Do not use `setcap`, `chattr`, privilege elevation, or `shred` as a guarantee of secure erasure.

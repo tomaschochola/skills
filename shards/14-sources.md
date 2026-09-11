@@ -1,7 +1,18 @@
-# DevSecOps
+## External Constraints
 
-The rules and guidelines below apply to generated code.
-Comply with all applicable requirements, including optional recommendations where feasible.
+Observe the following versioned external guidelines, security checklists and standards as binding minima where applicable, without overriding system shards or repository effective config:
+- NIST SP 800-218
+- OpenSSF OSPS Baseline
+- OpenSSF Developing More Secure Software
+- OpenSSF Best Practices Badge Criteria
+- OWASP ASVS 5.0
+- OpenSSF Scorecard Checks
+- CISA Product Security Bad Practices
+- SLSA 1.2
+- OWASP Software Component Verification Standard 1.0
+- OWASP DevSecOps Verification Standard
+- OWASP Secure Pipeline Verification Standard 1.6
+- OWASP AISVS 1.0
 
 ## NIST SP 800-218
 

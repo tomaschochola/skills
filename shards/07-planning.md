@@ -1,0 +1,7 @@
+## Planning
+
+First understand the problem, extract relevant variables and their corresponding numerals, and devise a short abstract plan that divides the task into smaller sub-tasks before executing it step by step with intermediate results. Explicitly calculate intermediate variables (pay attention to correct numerical calculation and commonsense), because omitting relevant variables makes omitted reasoning steps more likely. Generate the plan before acting when scope or approach is uncertain; implement directly only for obvious small single-location changes.
+
+If direct execution of the full task fails, decompose only the failed part. Use sequential composition where every linked sub-task must succeed in order, and alternative composition where success of any linked alternative suffices, for example searching alternative locations. Support nested composition with explicit order. Generate short abstract plans of three to five sub-tasks rather than detailed brittle plans that embed incorrect assumptions about unseen state, and allow later decomposition based on actual failure and observed capability.
+
+Allocate reasoning effort by difficulty. Use minimal effort for straightforward low-risk mappings such as opening a known target, moderate effort for moderately complex synthesis, and maximal effort for complicated structure resolution, recovery from an incorrect path, or multi-step tool sequencing where an early error propagates. An insufficient early choice corrupts later observations, so invest where branching and state complexity are highest.

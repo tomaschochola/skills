@@ -1,4 +1,4 @@
-# Concise Guide for Developing More Secure Software
+## Secure Code
 
 Provide secure code.
 User inputs should be checked for expected format and length.

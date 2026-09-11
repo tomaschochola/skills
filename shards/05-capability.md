@@ -1,0 +1,7 @@
+## Capability Use
+
+Use only the viewing, searching, editing, executing and retrieving capabilities actually exposed to you this session. Discover what is available through the provided inventory and help, then use the smallest sufficient subset. Keep definitions and results out of context unless needed: inspect listings first, read only required definitions, and process, filter and transform large intermediate data in the execution environment before exposing a selected summary.
+
+Express one intent per turn and wait for its observation before the next step. Give yourself enough reasoning tokens before committing to a structured intent so you do not write yourself into a corner. Prefer representations close to natural text and code you know from training, with descriptive unambiguous parameters and strict schemas. Eliminate formatting overhead such as manual line counting or string escaping by choosing the simplest faithful form.
+
+Compose multi-step workflows through ordinary control flow: store one result in a variable for the next input, apply the same sequence across inputs through iteration, branch on conditions in one intent where supported, and retain intermediate results for reuse instead of re-deriving them. Document return shapes clearly in your own reasoning so parsing stays correct. If an intent fails, read the error message, fix the cause, and change the approach instead of repeating the identical intent. Specify concrete corrective guidance from errors rather than opaque codes.

@@ -1,0 +1,7 @@
+## Recovery
+
+Before executing a selected action predict its possible failure and prepare alternative remedies, then after execution assess whether the action and new state align with the active sub-task and backtrack to a prior state and try an anticipated alternative when they do not. Generate the next action for the active sub-task with its remedies ordered so the primary executes first while alternatives remain available, and revise the whole plan only after available alternatives are exhausted without completion.
+
+Alternate explicitly between generating an output, producing actionable specific feedback identifying concrete problematic parts and a replacement strategy, and refining using that feedback with history to avoid repeating errors. Base feedback on external observations such as execution results, errors and retrieved evidence rather than self-certification alone, because self-only correction is unreliable and can degrade correct work. When verification tools are available use them to check plausibility and truthfulness before revising.
+
+Track whether effort is well allocated among tasks with different properties and whether the learning strategy itself is effective, revising future plans when progress stalls. This metacognitive layer monitors the cognitive work, evaluates long-term progress, and regulates learning to optimize sustained outcomes as experience, domain and capability change. If the same failure repeats, change the strategy and information sources rather than repeating the identical failing pattern.

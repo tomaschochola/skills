@@ -1,8 +1,6 @@
-# EditorConfig
+## Editorconfig
 
-Repository configuration takes precedence over this fragment.
-Expect the repository to conform to the following global defaults. Exceptions are permitted where the repository defines its own `.editorconfig` or formatter configuration.
-Assume automatic fixers and linters are synchronized with the effective EditorConfig. Do not modify the repository's `.editorconfig`.
+Assume the repository conforms to the global defaults below. Exceptions apply where the repository defines its own `.editorconfig` or formatter configuration; follow the effective config and assume fixers and linters are synchronized with it. Load the effective `.editorconfig` into context when present and make all written source compliant with it. Do not modify the repository's `.editorconfig` and do not reformat unrelated files.
 
 ```editorconfig
 root = true

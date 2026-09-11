@@ -1,0 +1,7 @@
+## Verification
+
+Finished means an executable check passes with evidence shown, not that work looks complete. If no check was supplied, appearance is your only signal and you become the bottleneck, so establish one immediately: tests, builds, linters, fixture diffs, reproduction scripts, or visual comparison against a design. Make both implementation and verification explicit in every task. Require the check to return a readable pass or fail signal, then implement, run, inspect and iterate.
+
+For defects start as create -> edit -> run: reproduce the issue with a dedicated script or visual capture showing before-state, then fix the root cause rather than suppressing the symptom, then re-run to show after-state and finally run related existing checks for regressions. Then stay in edit -> run with additional navigation as failures reveal related files or callers. Submit early when green; do not continue local edits after success. Record command, exit result and output rather than asserting success. Gate completion across levels where useful: prompt-level check for immediate work, session-level goal evaluated after each turn for unattended work, and deterministic gate that blocks ending until it passes.
+
+For visual and interactive work reproduce as a human user through live navigation, capture before and after states, identify differences, fix, restart and re-verify until clean. Use a fresh independent review to refute the result rather than grading your own work when stakes warrant it.

@@ -4,23 +4,34 @@ set -Eeuo pipefail
 
 cd -- "$(dirname -- "$0")"
 
-prompts=(
-    instructions/english/PROMPT.md
-    instructions/quality/PROMPT.md
-    instructions/devcontainer/PROMPT.md
-    instructions/editorconfig/PROMPT.md
-    instructions/make/PROMPT.md
-    instructions/git/PROMPT.md
-    instructions/base/PROMPT.md
-    instructions/devsecops/PROMPT.md
-    instructions/filesystem/PROMPT.md
+shards=(
+    shards/01-identity.md
+    shards/02-authority.md
+    shards/03-autonomy.md
+    shards/04-grounding.md
+    shards/05-capability.md
+    shards/06-loop.md
+    shards/07-planning.md
+    shards/08-verification.md
+    shards/09-continuity.md
+    shards/10-craft.md
+    shards/11-recovery.md
+    shards/12-expression.md
+    shards/13-devcontainer.md
+    shards/14-sources.md
+    shards/15-editorconfig.md
+    shards/16-filesystem.md
+    shards/17-makefile.md
+    shards/18-git.md
+    shards/19-secure-code.md
+    shards/20-engineering-vision.md
 )
 
 usage() {
     cat <<'USAGE'
-Usage: instructions.bash [TARGET...]
+Usage: shards.bash [TARGET...]
 
-Build instruction files for supported agents.
+Build instruction files from shards for supported agents.
 
 Targets:
   codex     Write Codex home AGENTS.md
@@ -36,10 +47,10 @@ Environment:
   XDG_CONFIG_HOME       Base config directory (default: $HOME/.config)
 
 Examples:
-  instructions.bash
-  instructions.bash codex
-  instructions.bash opencode
-  instructions.bash codex opencode
+  shards.bash
+  shards.bash codex
+  shards.bash opencode
+  shards.bash codex opencode
 USAGE
 }
 
@@ -60,26 +71,29 @@ resolve_opencode_file() {
     printf '%s/prompts/build.txt' "$base"
 }
 
-render_prompts() {
+render_shards() {
     local dest="$1"
+    local tmp
     mkdir -p "$(dirname -- "$dest")"
-    truncate --size=0 -- "$dest"
-    for prompt in "${prompts[@]}"; do
-        cat -- "$prompt" >> "$dest"
-        printf '\n' >> "$dest"
+    tmp="$(mktemp --tmpdir="$(dirname -- "$dest")" "$(basename -- "$dest").XXXXXX")"
+    chmod --changes --no-dereference -- '0644' "$tmp"
+    for shard in "${shards[@]}"; do
+        cat -- "$shard" >> "$tmp"
+        printf '\n' >> "$tmp"
     done
+    mv --no-target-directory --no-copy -- "$tmp" "$dest"
 }
 
 build_codex() {
     local dest
     dest="$(resolve_codex_file)"
-    render_prompts "$dest"
+    render_shards "$dest"
 }
 
 build_opencode() {
     local dest
     dest="$(resolve_opencode_file)"
-    render_prompts "$dest"
+    render_shards "$dest"
 }
 
 main() {
