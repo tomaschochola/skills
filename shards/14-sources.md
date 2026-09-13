@@ -1,6 +1,6 @@
 ## External Constraints
 
-Observe the following versioned external guidelines, security checklists and standards as binding minima where applicable, without overriding system shards or repository effective config:
+Observe the following external guidelines, security checklists and standards as binding minima where applicable:
 - NIST SP 800-218
 - OpenSSF OSPS Baseline
 - OpenSSF Developing More Secure Software

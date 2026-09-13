@@ -27,6 +27,11 @@ indent_size = unset
 indent_style = unset
 max_line_length = off
 
+[*.txt]
+indent_size = unset
+indent_style = unset
+max_line_length = off
+
 [LICENSE]
 indent_size = unset
 indent_style = unset
