@@ -104,20 +104,32 @@ CDPATH= cd -P -- "$DIR" && pwd -P # change verify
 # read file
 LC_ALL=C cat -- "$FILE" # whole stdout
 
+# read file numbered
+LC_ALL=C nl -ba -w1 -s: -- "$FILE" # all lines numbered
+
 # search inside file
 LC_ALL=C grep -n -C 3 --color=never -e "$PAT" -- "$FILE" # numbered context
 LC_ALL=C grep -n -F --color=never -e "$PAT" -- "$FILE" # literal match
-sed -n '1,50p' -- "$FILE" # bounded page
+sed -n '1,50p;50q' -- "$FILE" # bounded page
 
 # show head tail
 LC_ALL=C head -q -n 10 -- "$FILE" # first lines
 LC_ALL=C tail -q -n 10 -- "$FILE" # last lines
 LC_ALL=C tail -q -c 1024 -- "$FILE" # last bytes
 
+# show head tail range numbered original
+LC_ALL=C sed -n '1,10p;10q' -- "$FILE" | LC_ALL=C nl -ba -w1 -s: -v1 # first lines numbered
+LC_ALL=C nl -ba -w1 -s: -- "$FILE" | LC_ALL=C tail -q -n 10 # last lines numbered
+LC_ALL=C sed -n '20,30p;30q' -- "$FILE" | LC_ALL=C nl -ba -w1 -s: -v20 # range numbered
+
 # search tree
 LC_ALL=C grep -r -n -H -I --color=never [--null] --exclude-dir=.git -e "$PAT" -- "$DIR" # recursive
 LC_ALL=C grep -r -n -H -I --color=never [--null] -E -e "$PAT" -- "$DIR" # extended regex
 LC_ALL=C grep -r -n -H -I --color=never [--null] -F --include="*.sh" -e "$PAT" -- "$DIR" # literal suffix
+
+# search repo worktree
+git grep -n [-z] -e "$PAT" -- "$ROOT" # tracked only
+git grep --untracked --exclude-standard -n [-z] -e "$PAT" -- "$ROOT" # worktree content
 
 # find paths by metadata
 LC_ALL=C find "$DIR" -xdev -type f -name "*.log" [-print0] # null list
@@ -130,6 +142,9 @@ LC_ALL=C find "$DIR" -xdev -type f -print -quit # first match
 LC_ALL=C find "$DIR" -xdev -type f -name "*.log" -exec grep -l [--null] -e "$PAT" {} + # name plus content
 LC_ALL=C find "$DIR" -xdev -type f -name "*.log" -print0 | LC_ALL=C xargs -0 -r grep -l [--null] -e "$PAT" -- # piped fallback
 mapfile -d '' -t arr < <(LC_ALL=C find "$DIR" -xdev -type f -name "*.log" -print0) # bash array
+
+# list repo worktree
+git ls-files [-z] --cached --others --exclude-standard -- "$ROOT" # worktree null
 
 # inspect metadata
 LC_ALL=C stat -c "%a %u:%g %s %Y %i %F" -- "$FILE" # numeric epoch
