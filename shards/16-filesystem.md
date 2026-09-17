@@ -5,6 +5,8 @@ Resolve every filesystem and metafilesystem intent needed to advance the user ta
 Use 1) for any intent it can express, especially in-file text edits which must use only native dedicated file capabilities. Use 2) only when 1) cannot express the intent. Use 3) only from the inventory actually exposed this session, with the smallest sufficient subset, never assume a tool exists. The forms in 4) encode the expected behavior: no-clobber fail-loud colliding writes, atomic namespace transitions, pathname-race resistance with no check-then-act windows, durability after successful return, stable identity, all correct predictable secure non-destructive machine-readable unambiguous explicit reproducible automation-safe metadata-correct bounded-output failure-visible and non-interactive with no prompts or hangs. Prefer them over custom shell, combining and adapting their parameters as needed for the intent while preserving the encoded behavior. Use 5) only when no higher tier can express the intent, upholding the same behavior, one intent per invocation, preferring the smallest reversible step.
 
 ```bash
+# keep [NUL] when piping, drop it when reading: add --zero/-print0/-z/--null unless a human/LLM reads the output directly
+
 # create directories
 LC_ALL=C mkdir -p -- "$DIR" # parents
 LC_ALL=C mkdir -p -m 0755 -- "$DIR" && chmod 0755 -- "$DIR" # exact tree
@@ -92,7 +94,7 @@ LC_ALL=C install -D -T -m 0640 -o 0 -g 0 -- "$SRC" "$DEST" # root owned
 LC_ALL=C install -D -T -C -m 0644 -- "$SRC" "$DEST" # rerun skip same
 
 # list directory
-LC_ALL=C ls -lA --time-style=long-iso --color=never --zero -- "$DIR" # long
+LC_ALL=C ls -lA --time-style=long-iso --color=never [--zero] -- "$DIR" # long
 
 # print change directory
 pwd -P # physical path
@@ -113,20 +115,20 @@ LC_ALL=C tail -q -n 10 -- "$FILE" # last lines
 LC_ALL=C tail -q -c 1024 -- "$FILE" # last bytes
 
 # search tree
-LC_ALL=C grep -r -n -H -I --color=never --exclude-dir=.git -e "$PAT" -- "$DIR" # recursive
-LC_ALL=C grep -r -n -H -I --color=never -E -e "$PAT" -- "$DIR" # extended regex
-LC_ALL=C grep -r -n -H -I --color=never -F --include="*.sh" -e "$PAT" -- "$DIR" # literal suffix
+LC_ALL=C grep -r -n -H -I --color=never [--null] --exclude-dir=.git -e "$PAT" -- "$DIR" # recursive
+LC_ALL=C grep -r -n -H -I --color=never [--null] -E -e "$PAT" -- "$DIR" # extended regex
+LC_ALL=C grep -r -n -H -I --color=never [--null] -F --include="*.sh" -e "$PAT" -- "$DIR" # literal suffix
 
 # find paths by metadata
-LC_ALL=C find "$DIR" -xdev -type f -name "*.log" -print0 # null list
-LC_ALL=C find "$DIR" -xdev -maxdepth 3 -type f -print0 # by depth
-LC_ALL=C find "$DIR" -xdev -type f -size +1M -print0 # by size
-LC_ALL=C find "$DIR" -xdev -type f -mmin -60 -print0 # by age
-LC_ALL=C find "$DIR" -xdev -type f -newer "$REF" -print0 # newer than ref
-LC_ALL=C find "$DIR" -xdev -path "*/.git" -prune -o -type f -print0 # skip vcs
+LC_ALL=C find "$DIR" -xdev -type f -name "*.log" [-print0] # null list
+LC_ALL=C find "$DIR" -xdev -maxdepth 3 -type f [-print0] # by depth
+LC_ALL=C find "$DIR" -xdev -type f -size +1M [-print0] # by size
+LC_ALL=C find "$DIR" -xdev -type f -mmin -60 [-print0] # by age
+LC_ALL=C find "$DIR" -xdev -type f -newer "$REF" [-print0] # newer than ref
+LC_ALL=C find "$DIR" -xdev -path "*/.git" -prune -o -type f [-print0] # skip vcs
 LC_ALL=C find "$DIR" -xdev -type f -print -quit # first match
-LC_ALL=C find "$DIR" -xdev -type f -name "*.log" -exec grep -l -e "$PAT" {} + # name plus content
-LC_ALL=C find "$DIR" -xdev -type f -name "*.log" -print0 | LC_ALL=C xargs -0 -r grep -l -e "$PAT" -- # piped fallback
+LC_ALL=C find "$DIR" -xdev -type f -name "*.log" -exec grep -l [--null] -e "$PAT" {} + # name plus content
+LC_ALL=C find "$DIR" -xdev -type f -name "*.log" -print0 | LC_ALL=C xargs -0 -r grep -l [--null] -e "$PAT" -- # piped fallback
 mapfile -d '' -t arr < <(LC_ALL=C find "$DIR" -xdev -type f -name "*.log" -print0) # bash array
 
 # inspect metadata
@@ -139,9 +141,9 @@ test "$A" -ef "$B" # same inode test
 # resolve path
 LC_ALL=C realpath -e -- "$OBJ" # canonical
 LC_ALL=C realpath -m -- "$OBJ" # missing tolerant
-readlink --zero -- "$LINK" # link text null
+readlink [--zero] -- "$LINK" # link text null
 LC_ALL=C realpath --relative-to="$BASE" -- "$OBJ" # relative to base
-LC_ALL=C realpath -ze -- "$OBJ" # null terminated
+LC_ALL=C realpath -e [--zero] -- "$OBJ" # null terminated
 namei -l -- "$OBJ" # permission chain
 
 # compare
@@ -155,18 +157,18 @@ LC_ALL=C diff -q --strip-trailing-cr -- "$A" "$B" # cr normalized
 LC_ALL=C sha256sum -b -- "$FILE" # file hash
 LC_ALL=C sha256sum -c --status -- "$CHECK" # silent boolean
 LC_ALL=C sha256sum -c --quiet -- "$CHECK" # list failures
-LC_ALL=C sha256sum -b -z -- "$FILE" > "$CHECK" && LC_ALL=C sha256sum -c --strict -- "$CHECK" # strict newline
+LC_ALL=C sha256sum -b [--zero] -- "$FILE" > "$CHECK" && LC_ALL=C sha256sum -c --strict -- "$CHECK" # strict newline
 
 # report usage
-LC_ALL=C du -sB1 -x -- "$DIR" # disk bytes
-LC_ALL=C du -sb -- "$DIR" # apparent bytes
-LC_ALL=C du -d 1 -B1 -- "$DIR" # depth breakdown
-LC_ALL=C du -s --inodes -- "$DIR" # inode count
+LC_ALL=C du -sB1 -x [--null] -- "$DIR" # disk bytes
+LC_ALL=C du -sb [--null] -- "$DIR" # apparent bytes
+LC_ALL=C du -d 1 -B1 [--null] -- "$DIR" # depth breakdown
+LC_ALL=C du -s --inodes [--null] -- "$DIR" # inode count
 LC_ALL=C df -i -P -- "$DIR" # free inodes
 LC_ALL=C df -B1 -P -- "$DIR" # free table
 LC_ALL=C df -B1 -P -- "$DIR" | awk 'NR==2 {print $4}' # avail bytes
 stat -f -c "%a %S" -- "$DIR" # header-free blocks
-LC_ALL=C du -B1 --threshold=+10K -- "$DIR" # over threshold
+LC_ALL=C du -B1 --threshold=+10K [--null] -- "$DIR" # over threshold
 
 # list archive
 TAR_OPTIONS='' LC_ALL=C tar -tf "$ARC" # names
